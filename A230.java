@@ -30,21 +30,24 @@ public class A230 {
 
         // selection sort
 
-        for (int i = 0 ; i < n-1 ; i++) {
+        for (int j = 0 ; j < n ; j++) {
+            // did only one loop , it wont gonna fix 
+            for ( int i = 0 ; i < n-1 ; i++){
+                if (arr[i][0]>=arr[i+1][0]) {
+                        
+                    // ascending order so >=
+                    int dummyStrength = arr[i][0];
+                    int dummyBonus = arr[i][1];
 
-            if (arr[i][0]>=arr[i+1][0]) {
-                // ascending order so >=
-                int dummyStrength = arr[i][0];
-                int dummyBonus = arr[i][1];
+                    arr[i][0] = arr[i+1][0]; // assuming it also swaps the bonus value in array
+                    arr[i][1] = arr[i+1][1];
 
-                arr[i][0] = arr[i+1][0]; // assuming it also swaps the bonus value in array
-                arr[i][1] = arr[i+1][1];
-
-                arr[i+1][0] = dummyStrength;
-                arr[i+1][1] = dummyBonus;
-            }
-            else {
-                continue ;
+                    arr[i+1][0] = dummyStrength;
+                    arr[i+1][1] = dummyBonus;
+                }
+                else {
+                    continue ;
+                }
             }
         }
         // System.out.println("Done Sort");
@@ -52,6 +55,7 @@ public class A230 {
 
         // check sorted array
 
+        /* 
         System.out.println();
         for ( int j = 0 ; j < n; j++) {
             for ( int i = 0 ; i < 2 ; i++ ) { // 2 because of opponent and bonus
@@ -59,6 +63,7 @@ public class A230 {
             }
             System.out.println();
         }
+        */
         
 
         // System.out.println("Done Print");
